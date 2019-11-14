@@ -97,7 +97,7 @@ public class BananaTest {
         System.out.println();
     }
     public static class TestCase {
-        // This piece of code is shared under GPL 3.0. Feel free to integrate BananaTest.TestCase in your own code.
+        // This piece of code is shared under GPL 2.0. Feel free to integrate BananaTest.TestCase into your own code.
         ArrayList<Datum> datalist;
         int dimension;
         int range;
