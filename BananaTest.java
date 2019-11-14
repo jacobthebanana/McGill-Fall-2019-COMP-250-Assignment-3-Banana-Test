@@ -27,25 +27,6 @@ public class BananaTest {
             maxRange = 10000;
             dimension = 3;
 
-//            System.out.println(
-//                            "                    ▄▄▄▄▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▄▄▄\n" +
-//                            "              ,▄▄▀▀▀═                       `▀▀█▄;\n" +
-//                            "          ,▄█▀▀                                  ▀▀█▄                   ▄█\n" +
-//                            "       ▄▄▀▀         ▐█▀▀▀─ ▀██▀ ╓█▀▀█ █▌ ▐█         ¬▀█▄               ▄▀\n" +
-//                            "     ▄▀▀            ▐█▄▄▄   █▌  └█▄▄▄ ██▄██            ╘▀▄           ▄█▀\n" +
-//                            "   ▄▀               ▐█      █▌  █▄ ;█─█▌ ▐█               ▀█⌐      ▄█▀\n" +
-//                            " ▄▀                  ▀     ▀▀▀▀  -▀▀` █   █                 ▀█▄  ╓█▀\n" +
-//                            "█▀                                                            ▀██▀\n" +
-//                            "▀▄            ▄▄▄▄▄▄,▄▄▄▄  ,▄▄  ▄▄▄▄▄ ,▄▄▄▄ ▄▄▄ç              ▄▀▀█\n" +
-//                            " '█▄            █▌  ▐█    ▐█ `▀-  █▌  ██    █▌ ▐█           ▄▀    ▀▄\n" +
-//                            "   ▀█▄          █▌  ▐█▀▀▀  ▀▀▀█   █▌  ██▀▀▀ ████▀        ▄█▀        ▀▄\n" +
-//                            "     ╙▀▄        █▌  ▐█▄▄▄⌐▀█▄▄█'  █▌  ██▄▄▄ █▌ ▀█      ▄█▀            ▀▄\n" +
-//                            "        ▀▀▄ç                                        ▄█▀                ▀█\n" +
-//                            "           ╙▀█▄▄                                ,▄█▀`                    ▀\n" +
-//                            "               ¬▀▀█▄▄▄                     ,▄▄█▀▀\n" +
-//                            "                     ¬▀▀▀▀▀&▄▄▄▄▄▄▄▄▄▄▄B▀▀▀▀\n" +
-//                            " ");
-
             System.out.println("Attention: command-line parameters are empty, incomplete, or incorrectly formatted. " +
                     "Expected: numberOfTests, maxNumberOfDatum, maxRange, dimension, seed.");
             System.out.format("Defaulting to %d test cases.\n", numberOfTests);
