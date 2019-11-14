@@ -2,7 +2,7 @@
 This Banana Test checks for the correctness and efficiency of your `KDNode.nearestPointInNode` method. For the code to work properly, make your iterator returns all the values (they don't have to be in the right order.) `AnotherA3Tester` (which can be found in the COMP 250 Messenger group chat) can help ensure that your iterator is working properly.
 
 ## Instructions
-SSH into `cs.mimi.mcgill.ca` with your credentials.
+SSH into `mimi.cs.mcgill.ca` with your credentials.
 
 ### Step 1. Checkout this repo
 ```
