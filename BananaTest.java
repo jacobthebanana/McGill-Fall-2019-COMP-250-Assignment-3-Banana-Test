@@ -87,11 +87,11 @@ public class BananaTest {
         float percentageEfficiencyChange = 100 * (1 - averageEfficiency);
 
         if (percentageEfficiencyChange >= 0) {
-            System.out.format("When compared to brute-forcing using of your iterator, " +
+            System.out.format("When compared to brute-forcing using your iterator, " +
                     "your nearestPoint method is %f" + "%%" + " more efficient.\n", percentageEfficiencyChange);
         }
         else {
-            System.out.format("When compared to brute-forcing using of your iterator, " +
+            System.out.format("When compared to brute-forcing using your iterator, " +
                     "your nearestPoint method is %f" + "%%" + " less efficient.", -percentageEfficiencyChange);
         }
         System.out.println();
