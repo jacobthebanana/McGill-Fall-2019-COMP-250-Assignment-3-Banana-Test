@@ -38,7 +38,7 @@ Example:
 java BananaTest 100 10000 1000000 5 42
 ```
 
-## How does this Banana Test compare with `AnotherA3Tester`?
+## How does this Banana Test compare to `AnotherA3Tester`?
 - `AnotherA3Tester` tests for all three methods in the assignment, while `BananaTest` tests only for `KDNode.nearestPointInNode`
 - `BananaTest` runs multiple randomized tests and return the average result.
 - `BananaTest` makes it easy for you to reproduce the results from a particular test by specifying the random generator `seed` and other parameters in the command line.
