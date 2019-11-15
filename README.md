@@ -1,23 +1,26 @@
 # **Banana Test** for McGill Fall 2019 COMP 250 Assignment 3 
-This Banana Test checks for the correctness and efficiency of your `KDNode.nearestPointInNode` method. For the code to work properly, make sure that your iterator returns all the values (they don't have to be in the right order.) `AnotherA3Tester` (which can be found in the COMP 250 Messenger group chat) can help ensure that your iterator is working properly.
+This Banana Test checks for the correctness and efficiency of your `KDNode.nearestPointInNode` method. For the code to work properly, make sure that your iterator returns all the values (they don't have to be in the right order.) `AnotherA3Tester` (which can be found in the COMP 250 Messenger group chat) can help ensure that your iterator is working properly. 
 
 ## Instructions
-SSH into `mimi.cs.mcgill.ca` with your credentials.
+If you haven't done so yet, register an account for `mimi.cs.mcgill.ca` at https://newuser.cs.mcgill.ca/.
 
-### Step 1. Checkout this repo
-```
-git clone https://github.com/jacobthebanana/McGill-Fall-2019-COMP-250-Assignment-3-Banana-Test.git
-```
-Copy the file `BananaTest.java` to the `src` folder where you keep all your assignment code.
+### Step 1. Transfer your `src` folder to your home directory at `mimi.cs.mcgill.ca`
+Depending on your operating system, you might want to either `scp -r` or `WinSCP`. If you prefer to mount your `mimi` home folder as a network drive on your Windows Computer, check out [SFTP Drive 2](https://www.nsoftware.com/sftp/drive/) from `/n` software (free for personal use.)
 
-### Step 2. Compile, run, and Profit
-Compile using `javac`. In the `src` folder, run the following:
+### Step 2. Retrieve the `BananaTest` Java file with `wget`
+SSH into `mimi.cs.mcgill.ca`. `cd` to your `src` folder and run the following:
+```
+wget https://raw.githubusercontent.com/jacobthebanana/McGill-Fall-2019-COMP-250-Assignment-3-Banana-Test/master/BananaTest.java
+```
+
+### Step 3. Compile, run, and Profit
+Compile using `javac`. Without moving to a different folder folder, run the following:
 
 ```
 javac BananaTest.java
 ```
 
-To run the test using default parameters, 
+To run the test with default parameters, 
 ``` 
 java BananaTest
 ```
