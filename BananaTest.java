@@ -1,4 +1,3 @@
-import java.awt.desktop.SystemSleepEvent;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -21,14 +20,14 @@ public class BananaTest {
             seed = Long.parseLong(args[4]);
 
         } catch (Exception someException) {
-            maxNumberOfDatum = 100000;
+            maxNumberOfDatum = 10000;
             seed = System.nanoTime();
             numberOfTests = 100;
-            maxRange = 10000;
-            dimension = 3;
+            maxRange = 1000;
+            dimension = 5;
 
-            System.out.println("Attention: command-line parameters are empty, incomplete, or incorrectly formatted. " +
-                    "Expected: numberOfTests, maxNumberOfDatum, maxRange, dimension, seed.");
+            System.out.println("Attention: command-line parameters are empty, incomplete, or incorrectly formatted. \n" +
+                    "Here's the right way to do it: java BananaTest [numberOfTests] [maxNumberOfDatum] [maxRange] [dimension] [seed]");
             System.out.format("Defaulting to %d test cases.\n", numberOfTests);
             System.out.format("Defaulting to a maximum of %d data points.\n", maxNumberOfDatum);
             System.out.format("Defaulting to a maximum range of %d.\n", maxRange);
@@ -36,7 +35,7 @@ public class BananaTest {
 
 
             System.out.format("Your random seed is %d. You will need this seed to reproduce the test cases. " +
-                    "Make sure you include it while sharing your results with friends. :)\n", seed);
+                    "Make sure you include it when you share the results with your friends. :)\n", seed);
         }
 
         benchMarkNearestPointInNode(dimension, numberOfTests, maxRange, maxNumberOfDatum, seed);
@@ -55,7 +54,7 @@ public class BananaTest {
             Random generator = new Random(currentSeed);
             int numberOfDatum = generator.nextInt(maxNumberOfDatum);
 
-            System.out.format("\rPreparing test case %d \t\t\t\t\t", testIndex);
+            System.out.format("\rInitializing KD-Tree for test case %d \t\t\t\t\t", testIndex);
             TestCase testCase = new TestCase(numberOfDatum, dimension, maxRange, currentSeed);
             Datum queryPoint = testCase.generateRandomDatum();
 
@@ -80,6 +79,8 @@ public class BananaTest {
                 System.out.format("\rAttention! Your method returned an incorrect nearest point on test %d.", testIndex);
                 throw new Exception();
             }
+
+            currentSeed ++;
         }
 
         System.out.format("\r" + "All %d tests are now completed\n", numberOfTests);
@@ -87,17 +88,17 @@ public class BananaTest {
         float percentageEfficiencyChange = 100 * (1 - averageEfficiency);
 
         if (percentageEfficiencyChange >= 0) {
-            System.out.format("When compared to brute-forcing using your iterator, " +
+            System.out.format("When compared to brute-forcing with your iterator, " +
                     "your nearestPoint method is %f" + "%%" + " more efficient.\n", percentageEfficiencyChange);
         }
         else {
-            System.out.format("When compared to brute-forcing using your iterator, " +
+            System.out.format("When compared to brute-forcing with your iterator, " +
                     "your nearestPoint method is %f" + "%%" + " less efficient.", -percentageEfficiencyChange);
         }
         System.out.println();
     }
     public static class TestCase {
-        // This piece of code is shared under GPL 2.0. Feel free to integrate BananaTest.TestCase into your own code.
+        // This piece of code is shared under GPL 3.0. Feel free to integrate BananaTest.TestCase in your own code.
         ArrayList<Datum> datalist;
         int dimension;
         int range;
