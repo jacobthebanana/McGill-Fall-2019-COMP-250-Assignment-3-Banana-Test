@@ -30,7 +30,7 @@ You may specify the following parameters (all of which are whole numbers) in the
 - `seed`.
 
 ```
-java BananaTest (numberOfTests) (maxNumberOfDatum) (maxRange) (dimension) (seed)
+java BananaTest [numberOfTests] [maxNumberOfDatum] [maxRange] [dimension] [seed]
 ```
 
 Example: 
