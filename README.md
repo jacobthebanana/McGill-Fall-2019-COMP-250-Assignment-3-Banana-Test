@@ -5,7 +5,7 @@ This Banana Test checks for the correctness and efficiency of your `KDNode.neare
 If you haven't done so yet, register for an account for `mimi.cs.mcgill.ca` at [https://newuser.cs.mcgill.ca/](https://newuser.cs.mcgill.ca/).
 
 ### Step 1. Transfer your `src` folder to your home directory at `mimi.cs.mcgill.ca`
-Depending on your operating system, you might want to either `scp -r` or `WinSCP`. If you prefer to mount your `mimi` home folder as a network drive on your Windows Computer, check out [SFTP Drive 2](https://www.nsoftware.com/sftp/drive/) from `/n` software (free for personal use.)
+Depending on your operating system, you might want to either `scp -r` or `WinSCP`. If you are a Windows person and prefer to mount your `mimi` home folder as a network drive on your computer, check out [SFTP Drive 2](https://www.nsoftware.com/sftp/drive/) from `/n` software (free for personal use.)
 
 ### Step 2. Retrieve the `BananaTest` Java file with `wget`
 SSH into `mimi.cs.mcgill.ca`. `cd` to your `src` folder and run the following:
