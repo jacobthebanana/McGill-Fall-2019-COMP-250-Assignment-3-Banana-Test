@@ -2,7 +2,7 @@
 This Banana Test checks for the correctness and efficiency of your `KDNode.nearestPointInNode` method. For the code to work properly, make sure that your iterator returns all the values (they don't have to be in the right order.) `AnotherA3Tester` (which can be found in the COMP 250 Messenger group chat) can help ensure that your iterator is working properly. 
 
 ## Instructions
-If you haven't done so yet, register an account for `mimi.cs.mcgill.ca` at https://newuser.cs.mcgill.ca/.
+If you haven't done so yet, register for an account for `mimi.cs.mcgill.ca` at [https://newuser.cs.mcgill.ca/](https://newuser.cs.mcgill.ca/).
 
 ### Step 1. Transfer your `src` folder to your home directory at `mimi.cs.mcgill.ca`
 Depending on your operating system, you might want to either `scp -r` or `WinSCP`. If you prefer to mount your `mimi` home folder as a network drive on your Windows Computer, check out [SFTP Drive 2](https://www.nsoftware.com/sftp/drive/) from `/n` software (free for personal use.)
