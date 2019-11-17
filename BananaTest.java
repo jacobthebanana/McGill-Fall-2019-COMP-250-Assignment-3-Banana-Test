@@ -52,7 +52,7 @@ public class BananaTest {
 
         for (int testIndex = 1; testIndex <= numberOfTests; testIndex ++) {
             Random generator = new Random(currentSeed);
-            int numberOfDatum = generator.nextInt(maxNumberOfDatum);
+            int numberOfDatum = maxNumberOfDatum;
 
             System.out.format("\rInitializing KD-Tree for test case %d \t\t\t\t\t", testIndex);
             TestCase testCase = new TestCase(numberOfDatum, dimension, maxRange, currentSeed);
