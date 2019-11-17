@@ -48,7 +48,7 @@ java BananaTest 100 10000 1000000 5 42
 
 
 ## Acknowledgements
-`BananaTest` would not be possible without the altruistic and innovative work of Zhangyuan Nie, the person behind `AnotherA3Tester`. 
+`BananaTest` would not be possible without the altruistic and innovative work of Zhangyuan, the person behind `AnotherA3Tester`. 
 
 `BananaTest` is created on an Optiplex 990 from Reboot McGill. The Optiplex Tower is proudly housed in the Solin Hall Residence.
 
