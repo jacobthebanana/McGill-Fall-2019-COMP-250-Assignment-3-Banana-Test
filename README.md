@@ -52,5 +52,7 @@ java BananaTest 100 10000 1000000 5 42
 
 `BananaTest` is created on an Optiplex 990 from Reboot McGill. The Optiplex Tower is proudly housed in the Solin Hall Residence.
 
+Special thanks to Ryan, Zoe, and Soph for testing.
+
 ## Disclaimer
 This program is distributed free of charge, with **absolutely no warranty**. The results might be misleading or inconclusive. Make sure that you review this tester code carefully and understand what it actually does.
