@@ -21,10 +21,10 @@ public class BananaTest {
 
         } catch (Exception someException) {
             maxNumberOfDatum = 10000;
-            seed = System.nanoTime();
+            seed = 42;
             numberOfTests = 100;
-            maxRange = 1000;
-            dimension = 5;
+            maxRange = 100000;
+            dimension = 100;
 
             System.out.println("Attention: command-line parameters are empty, incomplete, or incorrectly formatted. \n" +
                     "Here's the right way to do it: java BananaTest [numberOfTests] [maxNumberOfDatum] [maxRange] [dimension] [seed]");
@@ -46,22 +46,28 @@ public class BananaTest {
     public static void benchMarkNearestPointInNode(int dimension, int numberOfTests, int maxRange, int maxNumberOfDatum, long seed) throws Exception {
         long currentSeed = seed;
         float averageEfficiency = 0;
+        float averageEfficiencyWithArray = 0;
 
         ArrayList<Datum> outputFromBruteForce;
         Datum actualOutput;
 
         for (int testIndex = 1; testIndex <= numberOfTests; testIndex ++) {
             Random generator = new Random(currentSeed);
-            int numberOfDatum = maxNumberOfDatum;
+//            int numberOfDatum = generator.nextInt(maxNumberOfDatum);
 
             System.out.format("\rInitializing KD-Tree for test case %d \t\t\t\t\t", testIndex);
-            TestCase testCase = new TestCase(numberOfDatum, dimension, maxRange, currentSeed);
+//            TestCase testCase = new TestCase(numberOfDatum, dimension, maxRange, currentSeed);
+            TestCase testCase = new TestCase(maxNumberOfDatum, dimension, maxRange, currentSeed);
             Datum queryPoint = testCase.generateRandomDatum();
 
             System.out.format("\rBrute-forcing test case %d \t\t\t\t\t", testIndex);
             long bruteForceStartTime = System.nanoTime();
-            outputFromBruteForce = testCase.findAllMatchesWithBruteForce(queryPoint);
+            outputFromBruteForce = testCase.findAllMatchesWithBruteForce(queryPoint, testCase.kdTree);
             long bruteForceEndTime = System.nanoTime();
+
+            long bruteForceStartTimeWithArray = System.nanoTime();
+            testCase.findAllMatchesWithBruteForce(queryPoint, testCase.datalist);
+            long bruteForceEndTimeWithArray = System.nanoTime();
 
             System.out.format("\rRunning test case %d on your KD-Tree \t\t\t\t\t", testIndex);
             long actualStartTime = System.nanoTime();
@@ -69,11 +75,14 @@ public class BananaTest {
             long actualEndTime = System.nanoTime();
 
             long bruteForceTime = bruteForceEndTime - bruteForceStartTime;
+            long bruteForceTimeWithArray = bruteForceEndTimeWithArray - bruteForceStartTimeWithArray;
             long actualTime = actualStartTime - actualEndTime;
 
             float efficiency = (float) bruteForceTime / actualTime;
+            float efficiencyWithArray = (float) bruteForceTimeWithArray / actualTime;
 
             averageEfficiency += (float) efficiency / numberOfTests;
+            averageEfficiencyWithArray += (float) efficiencyWithArray / numberOfTests;
 
             if (!outputFromBruteForce.contains(actualOutput)) {
                 System.out.format("\rAttention! Your method returned an incorrect nearest point on test %d.", testIndex);
@@ -89,11 +98,22 @@ public class BananaTest {
 
         if (percentageEfficiencyChange >= 0) {
             System.out.format("When compared to brute-forcing with your iterator, " +
-                    "your nearestPoint method is %f" + "%%" + " more efficient.\n", percentageEfficiencyChange);
+                    "on average your nearestPoint method is %f" + "%%" + " more efficient.\n", percentageEfficiencyChange);
         }
         else {
             System.out.format("When compared to brute-forcing with your iterator, " +
-                    "your nearestPoint method is %f" + "%%" + " less efficient.", -percentageEfficiencyChange);
+                    "on average your nearestPoint method is %f" + "%%" + " less efficient.", -percentageEfficiencyChange);
+        }
+
+        percentageEfficiencyChange = 100 * (1 - averageEfficiencyWithArray);
+
+        if (percentageEfficiencyChange >= 0) {
+            System.out.format("When compared to brute-forcing with an ArrayList of data points, " +
+                    "on average your nearestPoint method is %f" + "%%" + " more efficient.\n", percentageEfficiencyChange);
+        }
+        else {
+            System.out.format("When compared to brute-forcing with an ArrayList of data points, " +
+                    "on average your nearestPoint method is %f" + "%%" + " less efficient.", -percentageEfficiencyChange);
         }
         System.out.println();
     }
@@ -131,12 +151,12 @@ public class BananaTest {
             return datalist;
         }
 
-        public ArrayList<Datum> findAllMatchesWithBruteForce(Datum queryPoint) {
+        public ArrayList<Datum> findAllMatchesWithBruteForce(Datum queryPoint, Iterable<Datum> datalist) {
             // This non-static method returns a set of all legitimate matches.
             ArrayList<Datum> matches = new ArrayList<Datum>();
             long minimumSeparation = -1;
 
-            for (Datum currentDatum: this.kdTree) {
+            for (Datum currentDatum: datalist) {
                 long separation = KDTree.distSquared(currentDatum, queryPoint);
 
                 if (separation == minimumSeparation) {
