@@ -24,7 +24,7 @@ public class BananaTest {
             seed = 42;
             numberOfTests = 100;
             maxRange = 100000;
-            dimension = 100;
+            dimension = 5;
 
             System.out.println("Attention: command-line parameters are empty, incomplete, or incorrectly formatted. \n" +
                     "Here's the right way to do it: java BananaTest [numberOfTests] [maxNumberOfDatum] [maxRange] [dimension] [seed]");
