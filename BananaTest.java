@@ -24,7 +24,7 @@ public class BananaTest {
             seed = 42;
             numberOfTests = 100;
             maxRange = 100000;
-            dimension = 5;
+            dimension = 1;
 
             System.out.println("Attention: command-line parameters are empty, incomplete, or incorrectly formatted. \n" +
                     "Here's the right way to do it: java BananaTest [numberOfTests] [maxNumberOfDatum] [maxRange] [dimension] [seed]");
@@ -76,10 +76,10 @@ public class BananaTest {
 
             long bruteForceTime = bruteForceEndTime - bruteForceStartTime;
             long bruteForceTimeWithArray = bruteForceEndTimeWithArray - bruteForceStartTimeWithArray;
-            long actualTime = actualStartTime - actualEndTime;
+            long actualTime = actualEndTime - actualStartTime;
 
-            float efficiency = (float) bruteForceTime / actualTime;
-            float efficiencyWithArray = (float) bruteForceTimeWithArray / actualTime;
+            float efficiency = (float) bruteForceTime / actualTime - 1;
+            float efficiencyWithArray = (float) bruteForceTimeWithArray / actualTime - 1;
 
             averageEfficiency += (float) efficiency / numberOfTests;
             averageEfficiencyWithArray += (float) efficiencyWithArray / numberOfTests;
@@ -94,7 +94,7 @@ public class BananaTest {
 
         System.out.format("\r" + "All %d tests are now completed\n", numberOfTests);
 
-        float percentageEfficiencyChange = 100 * (1 - averageEfficiency);
+        float percentageEfficiencyChange = 100 * (averageEfficiency);
 
         if (percentageEfficiencyChange >= 0) {
             System.out.format("When compared to brute-forcing with your iterator, " +
@@ -102,10 +102,10 @@ public class BananaTest {
         }
         else {
             System.out.format("When compared to brute-forcing with your iterator, " +
-                    "on average your nearestPoint method is %f" + "%%" + " less efficient.", -percentageEfficiencyChange);
+                    "on average your nearestPoint method is %f" + "%%" + " less efficient.\n", -percentageEfficiencyChange);
         }
 
-        percentageEfficiencyChange = 100 * (1 - averageEfficiencyWithArray);
+        percentageEfficiencyChange = 100 * (averageEfficiencyWithArray);
 
         if (percentageEfficiencyChange >= 0) {
             System.out.format("When compared to brute-forcing with an ArrayList of data points, " +
@@ -113,7 +113,7 @@ public class BananaTest {
         }
         else {
             System.out.format("When compared to brute-forcing with an ArrayList of data points, " +
-                    "on average your nearestPoint method is %f" + "%%" + " less efficient.", -percentageEfficiencyChange);
+                    "on average your nearestPoint method is %f" + "%%" + " less efficient.\n", -percentageEfficiencyChange);
         }
         System.out.println();
     }
